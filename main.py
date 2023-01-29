@@ -6,15 +6,17 @@ from routers.cars import cars_router
 from routers.newsletters import newsletter_router
 from database.db_worker import connect_db
 from fastapi.staticfiles import StaticFiles
-
+from decouple import config
 
 
 app = FastAPI(title='Cars API')
 app.mount("/static", StaticFiles(directory="static"), name="static")
+APP_HOST = config('APP_HOST', default='127.0.0.1', cast=str)
+
 
 @app.get('/')
 async def home():
-    return {'title': 'Hello Coder Flower!'}
+    return {'title': 'Hello Coder!'}
 
 
 origins = ["*"]
@@ -45,6 +47,5 @@ app.include_router(newsletter_router)
 
 
 if __name__ == "__main__":
-    # uvicorn.run("main:app", port=8080, reload=True)
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True) # run remote
+    uvicorn.run("main:app", host=APP_HOST, port=8000, reload=True)
 

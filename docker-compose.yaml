@@ -7,15 +7,15 @@ services:
     container_name: fastapi-container
     build: .
     command: python /app/main.py
-    volumes: # sync updates between local folder and container
+    volumes:
       - .:/app
     env_file:
       - .env
     environment:
        - DB_URL=mongodb://mongo:27017
     ports:
-      - 8000:8000 # local:container
-    depends_on: # start after mongo
+      - 8000:8000
+    depends_on:
       - "mongo"
 
   mongo:
@@ -23,7 +23,7 @@ services:
     container_name: mongo-db-container
     restart: always
     ports:
-      - 37017:27017 #local:container
+      - 37017:27017
     volumes: # save db data
       - data:/data/db
 

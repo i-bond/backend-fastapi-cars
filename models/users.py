@@ -9,28 +9,6 @@ class Role(str, Enum):
     USER = "USER"
     ADMIN = "ADMIN"
 
-# class Users(Document):
-#     username: str = Field(..., min_length=3, max_length=30)
-#     email: EmailStr = Field(...)
-#     password: str = Field(...)
-#     role: Role = Role.USER
-#
-#     class Settings:
-#         '''Set DB collection'''
-#         name = 'users'
-#
-#     class Config:
-#         '''Payload example'''
-#         schema_extra = {
-#             "example": {
-#                 "username": "Jack",
-#                 "email": "jack@mail.com",
-#                 "password": "123",
-#                 "role": "USER",
-#             }
-#         }
-
-
 
 class UsersPublic(Document):
     username: str = Field(..., min_length=3, max_length=30)

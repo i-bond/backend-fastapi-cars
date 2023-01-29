@@ -1,12 +1,7 @@
 from fastapi import APIRouter, Request, status, HTTPException, Depends
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
 from models.users import UsersPrivate, TokenResponse
 from auth.auth_handler import create_access_token, validate_access_token, hash_password, verify_hash
-from fastapi.encoders import jsonable_encoder
 from fastapi.security import OAuth2PasswordRequestForm, HTTPBearer, HTTPAuthorizationCredentials
-from typing import List, Optional
-from pydantic import BaseModel
 
 
 

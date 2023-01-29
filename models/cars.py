@@ -46,7 +46,6 @@ class CarUpdateBody(BaseModel):
 
 
 
-# if __name__ == '__main__':
-#     print( datetime.datetime(year=2021, month=12, day=21))
+
 
 

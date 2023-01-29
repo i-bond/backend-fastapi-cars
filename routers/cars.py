@@ -76,14 +76,6 @@ async def post_car(
     return created_car
 
 
-# @cars_router.post("/", status_code=201, response_description="Add new car", response_model=Cars)
-# async def post_car(car: Cars, user_email=Depends(auth_wrapper)):
-#     print(user_email)
-#     car.added_by = user_email
-#     created_car = await car.create()
-#     return created_car
-
-
 @cars_router.patch("/{car_id}", status_code=200, response_description="Update car properties", response_model=Cars)
 async def update_car(car_id: PydanticObjectId, updated_car: CarUpdateBody, user_email=Depends(auth_wrapper)):
     car = await Cars.get(car_id)
@@ -117,6 +109,3 @@ async def delete_car(car_id: PydanticObjectId, user_email=Depends(auth_wrapper))
 
 
 
-if __name__ == '__main__':
-    image_url = f"./static/images/131313.png"
-    print(image_url.strip('.'))
